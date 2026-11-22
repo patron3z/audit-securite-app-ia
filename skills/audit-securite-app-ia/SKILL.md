@@ -31,7 +31,7 @@ Ici on audite le CODE et la BASE DE DONNÉES.
 - **NE PAS signaler** (conçu pour être public) : clé anon Supabase, clé publishable Stripe, client ID PayPal public, clé projet PostHog. Pour l'anon Supabase, la vraie barrière est la RLS.
 
 ### 2. RLS Supabase qui a juste l'air activée (CWE-862 / CWE-863)
-- « RLS activée » est une affirmation à vérifier. Utiliser le MCP Supabase (`list_tables`, `execute_sql` en lecture, `get_advisors` sécurité) si connecté.
+- « RLS activée » est une affirmation à vérifier. Si l'agent a accès à la base, vérifier en direct, en lecture seule : MCP Supabase (`list_tables`, `execute_sql`, `get_advisors` sécurité) ou CLI `supabase` / `psql` sur les tables `pg_tables`, `pg_policies` et `storage.buckets`. Sinon, lire les migrations SQL et le dire dans « Pas vérifié ».
 - Table publique sans RLS : la clé anon lit tout.
 - Politique `USING (true)` : RLS « on », mais tout le monde lit tout.
 - RLS on sans aucune politique : tout est refusé (l'app brise, souvent « réglée » ensuite par un `USING (true)`).

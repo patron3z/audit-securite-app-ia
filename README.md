@@ -1,6 +1,6 @@
 # Audit de sécurité pour les apps codées avec l'IA
 
-Skill Claude (Claude Code et claude.ai) qui audite une app écrite avec un assistant IA — Next.js / React sur Vercel, Supabase, React Native / Expo, workflows n8n, appels à des LLM — et trouve les failles prévisibles avant un attaquant.
+Skill pour agents de code (Claude Code, claude.ai, Codex, OpenCode, et tout agent compatible avec le format [Agent Skills](https://agentskills.io)) qui audite une app écrite avec un assistant IA — Next.js / React sur Vercel, Supabase, React Native / Expo, workflows n8n, appels à des LLM — et trouve les failles prévisibles avant un attaquant.
 
 Chaque constat est prouvé : **fichier:ligne, exploit concret, correction en un commit**. L'audit est en lecture seule et n'affiche jamais un secret en clair.
 
@@ -30,17 +30,25 @@ Chaque constat est prouvé : **fichier:ligne, exploit concret, correction en un 
 
 ## Installer
 
-**Claude Code**
+Le skill est un simple dossier avec un `SKILL.md` (format Agent Skills). Récupère le repo :
 
 ```bash
 git clone https://github.com/patron3z/audit-securite-app-ia.git
 ```
 
-puis copier le dossier `skills/audit-securite-app-ia` dans `~/.claude/skills/`.
+Puis copie le dossier `skills/audit-securite-app-ia` à l'endroit lu par ton outil :
+
+| Outil | Pour toi (tous les projets) | Pour un seul projet |
+|---|---|---|
+| **Claude Code** | `~/.claude/skills/` | `.claude/skills/` |
+| **Codex** | `~/.agents/skills/` | `.agents/skills/` |
+| **OpenCode** | `~/.config/opencode/skills/` | `.opencode/skills/` |
+
+OpenCode lit aussi `~/.claude/skills/` et `~/.agents/skills/` : une seule copie suffit si tu utilises plusieurs outils.
 
 **claude.ai** : zipper le dossier `skills/audit-securite-app-ia` (le `SKILL.md` à la racine du zip) et l'ajouter dans Paramètres → Skills.
 
-Ensuite : « audite mon app » avec ton repo ou tes fichiers.
+Redémarre l'outil, puis demande : « audite mon app » dans ton repo.
 
 ## Crédit et licence
 
