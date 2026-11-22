@@ -33,10 +33,10 @@ Chaque constat est prouvé : **fichier:ligne, exploit concret, correction en un 
 **Claude Code**
 
 ```bash
-npx skills add patron3z/audit-securite-app-ia
+git clone https://github.com/patron3z/audit-securite-app-ia.git
 ```
 
-ou à la main : copier le dossier `skills/audit-securite-app-ia` dans `~/.claude/skills/`.
+puis copier le dossier `skills/audit-securite-app-ia` dans `~/.claude/skills/`.
 
 **claude.ai** : zipper le dossier `skills/audit-securite-app-ia` (le `SKILL.md` à la racine du zip) et l'ajouter dans Paramètres → Skills.
 
