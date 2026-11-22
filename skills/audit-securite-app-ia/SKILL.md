@@ -1,6 +1,6 @@
 ---
 name: "audit-securite-app-ia"
-description: "Audit de sécurité d'une app codée avec l'IA (Next.js, Supabase, Vercel, n8n, React Native) : secrets exposés, RLS, injection de prompt, paiements falsifiables, IDOR, uploads. Pour « audite mon app », « est-ce que mon app est sécure »."
+description: "Read-only security audit for AI-generated apps (Next.js/React on Vercel, Supabase, React Native/Expo, n8n workflows, LLM calls). Finds exposed secrets (NEXT_PUBLIC_/EXPO_PUBLIC_ keys, Supabase service_role, committed env files), weak Supabase RLS and public storage buckets (checked live via the Supabase MCP or supabase/psql CLI when available), prompt injection into LLM instructions, and 14 server-trusts-client attacks (XSS, IDOR, price tampering, fake payments, race conditions, mass assignment, SQL injection, unsafe uploads). Every finding gives file:line, a concrete exploit and a one-commit fix; secrets are never printed. Works in Claude Code, Codex and OpenCode. Use for 'audit my app', 'is my app secure', 'audite mon app', 'est-ce que mon app est sécure'."
 ---
 
 # Audit sécurité d'app codée avec l'IA
